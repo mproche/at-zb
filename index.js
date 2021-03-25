@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", fetchBitcoinPrice)
 
 let initialPurchasePrice = 51448.44
 let bitcoinOwned = 0.045964
+let originalPot = 2400
 
 let url = "https://api.coindesk.com/v1/bpi/currentprice/BTC.json"
 
@@ -17,7 +18,7 @@ function fetchBitcoinPrice() {
       let rateValue = parseFloat(rateWithoutCommas)
       let currentPrice = bitcoinOwned * rateValue
 
-      let isGain = currentPrice - 1200 > 0
+      let isGain = currentPrice - originalPot > 0
       let styleColor = isGain ? "green" : "red"
 
       let element = document.getElementById("gr-pot-price")
